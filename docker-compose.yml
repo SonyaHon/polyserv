@@ -6,6 +6,7 @@ services:
       target: dev
     ports:
       - ${DEV_REPL_PORT}:16969
+      - ${DEV_APP_PORT}:6969
     volumes:
       - ./runtime_data:/app/runtime_data
       - ./deps.edn:/app/deps.edn
@@ -14,7 +15,7 @@ services:
       - ./components:/app/components
       - ./development:/app/development
       - ./projects:/app/projects
-    command: [ "clj",  "-M:nrepl" ]
+    command: [ "clj",  "-M:dev:test:nrepl" ]
   mongo:
     image: mongo:5.0.17
     ports:

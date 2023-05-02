@@ -7,11 +7,16 @@ override DEV_REPL_PORT=16969
 endif
 
 
+ifndef DEV_APP_PORT
+override DEV_APP_PORT=6969
+endif
+
+
 ifndef DEV_REDIS_PORT
 override DEV_REDIS_PORT=6379
 endif
 
-DOCKER_CLI = DEV_REPL_PORT=$(DEV_REPL_PORT) DEV_REDIS_PORT=$(DEV_REDIS_PORT) DEV_MONGO_PORT=$(DEV_MONGO_PORT) DOCKER_BUILDKIT=1 docker compose -f ./docker-compose.yml -p polyserv
+DOCKER_CLI = DEV_APP_PORT=$(DEV_APP_PORT) DEV_REPL_PORT=$(DEV_REPL_PORT) DEV_REDIS_PORT=$(DEV_REDIS_PORT) DEV_MONGO_PORT=$(DEV_MONGO_PORT) DOCKER_BUILDKIT=1 docker compose -f ./docker-compose.yml -p polyserv
 ifdef BUILD
 override POSTFIX = --build
 endif
@@ -46,4 +51,4 @@ poly:
 	$(DOCKER_CLI) exec polyserv clj -M:poly
 
 update-deps:
-	$(DOCKER_CLI) exec polyserv "clj -X:deps prep"
+	$(DOCKER_CLI) exec polyserv clj -X:deps prep :aliases '[:nrepl :dev :poly :test]'
