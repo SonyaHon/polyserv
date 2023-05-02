@@ -13,6 +13,11 @@
 .idea/**/statistic.xml
 .idea/dictionaries/**
 .idea/libraries/**
+.idea/
+.vscode/
+.cpcache/
+
+runtime_data/
 
 # File-based project format
 *.iws
