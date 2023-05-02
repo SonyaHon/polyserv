@@ -2,8 +2,8 @@
 
 A collection of self-hosted services for myself
 
-## Documentation
-
+# Documentation
+## Starting
 All development is done inside Docker
 
 * Available commands:
@@ -17,3 +17,4 @@ make
     * `DEV_REPL_PORT`  - host system port for repl
 
 
+## Components
