@@ -3,6 +3,8 @@
                                  "components/auth/src"
                                  "components/mongo/src"
                                  "components/crypto/src"
+                                 "components/user/src"
+                                 "components/user/resources"
                                  "components/crypto/resources"
                                  "components/mongo/resources"
                                  "components/auth/resources"
@@ -10,10 +12,12 @@
                    :extra-deps  {org.clojure/clojure    {:mvn/version "1.11.1"}
                                  ring/ring              {:mvn/version "1.10.0"}
                                  com.novemberain/monger {:mvn/version "3.6.0"}
-                                 buddy/buddy            {:mvn/version "2.0.0"}}}
+                                 buddy/buddy            {:mvn/version "2.0.0"}
+                                 clj-time/clj-time      {:mvn/version "0.15.2"}}}
 
            :test  {:extra-paths ["components/http/test"
                                  "components/mongo/test"
+                                 "components/user/test"
                                  "components/crypto/test"
                                  "components/auth/test"]}
 
