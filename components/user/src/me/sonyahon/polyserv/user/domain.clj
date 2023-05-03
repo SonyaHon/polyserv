@@ -9,3 +9,8 @@
   (let [id (ObjectId.)
         encrypted-password (hashing/encrypt password)]
     (->User id email encrypted-password {:created-at (time/now)} {})))
+
+(defn serialize [user]
+  (-> user
+      (assoc :id (str (:id user)))
+      (dissoc :password)))

@@ -4,13 +4,17 @@
             [me.sonyahon.polyserv.user.interface.prelude :as user-prelude]
             [me.sonyahon.polyserv.user.interface.repository :as user-repository]
             [me.sonyahon.polyserv.user.interface.domain :as user-domain]
-            [me.sonyahon.polyserv.auth.interface.http :as auth-http]))
+            [me.sonyahon.polyserv.auth.interface.http :as auth-http]
+            [me.sonyahon.polyserv.user.interface.http :as user-http]))
 
 
 (comment
 
+  (user-http/gen-routes "/api/users" {})
+
   (web-server/start-server! 6969
-                            [(auth-http/gen-routes "/api/auth")])
+                            [[(auth-http/gen-routes "/api/auth")]
+                             [(user-http/gen-routes "/api/users")]])
 
   (mongo/connect!)
   (user-prelude/prelude)

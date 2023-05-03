@@ -9,5 +9,14 @@
   (domain/from-credentials credentials))
 
 (s/fdef from-credentials
-        :args (s/keys :req-un [:user/email :user/password])
+        :args (s/cat (s/keys :req-un [:user/email :user/password]))
         :ret :user/instance)
+
+(defn serialize
+  "Serializes user to JSON like map, removing sensitive data"
+  [user]
+  (domain/serialize user))
+
+(s/fdef serialize
+        :args (s/cat :user/instance)
+        :ret map?)

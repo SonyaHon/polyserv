@@ -6,6 +6,7 @@
 
     [me.sonyahon.polyserv.auth.repository :as repo]
     [me.sonyahon.polyserv.crypto.interface.hashing :as hashing]
+    [me.sonyahon.polyserv.user.interface.domain :as user-domain]
     [me.sonyahon.polyserv.user.interface.repository :as user-repo]
     [me.sonyahon.polyserv.http.interface.server :as server]
     [me.sonyahon.polyserv.http.interface.http-status :as status])
@@ -76,9 +77,7 @@
             status/ok
             {:data     {:access_token  access-token
                         :refresh_token refresh-token}
-             :included {:user (-> user
-                                  (assoc :id (str (:id user)))
-                                  (dissoc :password))}}))
+             :included {:user (user-domain/serialize user)}}))
         (server/json-resp
           status/forbidden
           {})))))
@@ -116,6 +115,4 @@
                   status/ok
                   {:data     {:access_token  access-token
                               :refresh_token refresh-token}
-                   :included {:user (-> user
-                                        (assoc :id (str (:id user)))
-                                        (dissoc :password))}})))))))))
+                   :included {:user (user-domain/serialize user)}})))))))))
