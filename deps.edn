@@ -2,15 +2,19 @@
                                  "components/http/src"
                                  "components/auth/src"
                                  "components/mongo/src"
+                                 "components/crypto/src"
+                                 "components/crypto/resources"
                                  "components/mongo/resources"
                                  "components/auth/resources"
                                  "components/http/resources"]
                    :extra-deps  {org.clojure/clojure    {:mvn/version "1.11.1"}
                                  ring/ring              {:mvn/version "1.10.0"}
-                                 com.novemberain/monger {:mvn/version "3.6.0"}}}
+                                 com.novemberain/monger {:mvn/version "3.6.0"}
+                                 buddy/buddy            {:mvn/version "2.0.0"}}}
 
            :test  {:extra-paths ["components/http/test"
                                  "components/mongo/test"
+                                 "components/crypto/test"
                                  "components/auth/test"]}
 
            :nrepl {:extra-deps {nrepl/nrepl {:mvn/version "1.0.0"}}

@@ -1,0 +1,4 @@
+{:paths   ["src" "resources"]
+ :deps    {buddy/buddy {:mvn/version "2.0.0"}}
+ :aliases {:test {:extra-paths ["test"]
+                  :extra-deps  {}}}}
