@@ -7,8 +7,11 @@
   (server-impl/stop-server!))
 
 (defn start-server!
-  "Starts a http server with handler.
+  "Starts a http server with reitit routes.
   Currently running server (if any) will be stopped."
-  [port handler]
-  (#(server-impl/start-server! port handler)))
+  [port routes]
+  (#(server-impl/start-server! port routes)))
 
+(defn json-resp
+  ([status body] (server-impl/json-resp status body {}))
+  ([status body opts] (server-impl/json-resp status body opts)))

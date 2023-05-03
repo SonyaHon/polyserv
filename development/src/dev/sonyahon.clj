@@ -3,17 +3,14 @@
             [me.sonyahon.polyserv.mongo.interface :as mongo]
             [me.sonyahon.polyserv.user.interface.prelude :as user-prelude]
             [me.sonyahon.polyserv.user.interface.repository :as user-repository]
-            [me.sonyahon.polyserv.user.interface.domain :as user-domain]))
+            [me.sonyahon.polyserv.user.interface.domain :as user-domain]
+            [me.sonyahon.polyserv.auth.interface.http :as auth-http]))
 
-(defn demo-app [request]
-  (prn "Params yay 2:" (:params request))
-  {:status  200
-   :headers {"Content-Type" "application/json"}
-   :body    "{\"ok\": true}"})
 
 (comment
 
-  (web-server/start-server! 6969 #(demo-app %))
+  (web-server/start-server! 6969
+                            [(auth-http/gen-routes "/api/auth")])
 
   (mongo/connect!)
   (user-prelude/prelude)

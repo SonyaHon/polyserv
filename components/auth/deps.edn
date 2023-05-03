@@ -1,0 +1,6 @@
+{:paths   ["src" "resources"]
+ :deps    {buddy/buddy            {:mvn/version "2.0.0"}
+           clj-time/clj-time      {:mvn/version "0.15.2"}
+           com.novemberain/monger {:mvn/version "3.6.0"}}
+ :aliases {:test {:extra-paths ["test"]
+                  :extra-deps  {}}}}

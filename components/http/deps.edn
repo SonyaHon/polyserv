@@ -1,4 +1,6 @@
 {:paths   ["src" "resources"]
- :deps    {ring/ring {:mvn/version "1.10.0"}}
+ :deps    {ring/ring         {:mvn/version "1.10.0"}
+           metosin/reitit    {:mvn/version "0.6.0"}
+           cheshire/cheshire {:mvn/version "5.11.0"}}
  :aliases {:test {:extra-paths ["test"]
                   :extra-deps  {}}}}

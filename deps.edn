@@ -13,6 +13,8 @@
                                  ring/ring              {:mvn/version "1.10.0"}
                                  com.novemberain/monger {:mvn/version "3.6.0"}
                                  buddy/buddy            {:mvn/version "2.0.0"}
+                                 cheshire/cheshire      {:mvn/version "5.11.0"}
+                                 metosin/reitit         {:mvn/version "0.6.0"}
                                  clj-time/clj-time      {:mvn/version "0.15.2"}}}
 
            :test  {:extra-paths ["components/http/test"
